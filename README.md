@@ -1,7 +1,7 @@
 # 🌄 Web Design Project-Brasov
 
 ## 👥 Team Members
-- **Olariu Lenuta-Maria** (272523): - responsible for the Discover Brasov page, Sightseeing page and Contact page
+- **Olariu Lenuta-Maria** (272523): - responsible for the Discover Brasov page, Sightseeing page, Contact page and Dracula page
 - **Voican Delia** (272520): - responsible for the Home page, History page and Services page
 
 ## 🌐 Website Overview
@@ -29,6 +29,9 @@
 
 ### 6. Contact Page <br>
   A user-friendly page with a contact form and essential information to connect with Brasov tourism or related services. Includes email, adress, and a map for directions.
+
+### 7. Dracula Page
+  Dive into the legend of Dracula, exploring the connection between Vlad the Impaler and Bran Castle. Learn about the real history behind the myth, Bram Stoker's influence, and the landmarks that bring the Dracula story to life. This page blends history and folklore, offering a glimpse into one of the world’s most famous legends.
 
 ## 🛠️ Technologies Used
 - **HTML**: for the structure of the web pages.
