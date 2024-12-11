@@ -38,3 +38,5 @@
 - **CSS**: for styling and responsive design.
 - **JavaScript**:  for interactivity and animations.
 
+Link to GitHub: [Project](https://github.com/deliav10/Web-Design-Project---Brasov)
+
