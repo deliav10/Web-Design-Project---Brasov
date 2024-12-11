@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dracula</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #5c1c40;
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            justify-content: center;
+            z-index: 1000;
+            gap: 20px;
+        }
+        
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .menu a i {
+            font-size: 20px;
+            transition: transform 0.2s ease;
+        }
+
+        .menu a:hover i {
+            transform: scale(1.2);
+        }
+
+        .menu a:hover {
+            color: #731959;
+        }
+
+        body {
+            background-image: url('images/cerstele.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .extra-info {
+            margin: 20px auto;
+            width: 100%;
+            max-width: 100%;
+            text-align: center;
+            font-size: 1em;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            padding: 30px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .extra-info h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .extra-info p {
+            margin-bottom: 15px;
+        }
+
+        .extra-info button {
+            background-color: #731959;
+            color: white;
+            font-size: 1em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .extra-info button:hover {
+            background-color: #5b1250;
+        }
+
+        .card-body {
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            height: 826px;
+        }
+
+        .card {
+            width: 630px;
+            height: 350px;
+            position: relative;
+            margin: 20px;
+            padding: 30px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background: linear-gradient(135deg, #6f0e0e, #200e2c);
+            border-radius: 25px;
+            transition: 1s;
+        }
+
+        #img1 {
+            position: absolute;
+            width: auto;
+            height: 500px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 1s;
+        }
+
+        #img2 {
+            position: absolute;
+            width: auto;
+            height: 500px;
+            bottom: 0;
+            left: 50%;
+            opacity: 0;
+            transform: translateX(-50%);
+            transition: 1s;
+        }
+
+        .card:hover #img1 {
+            opacity: 0;
+            height: 600px;
+            left: 80%;
+            transition: 1s;
+        }
+
+        .card:hover #img2 {
+            opacity: 100%;
+            height: 600px;
+            left: 80%;
+            transition: 1s;
+        }
+
+        .content {
+            color: #ffffff;
+            width: 400px;
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .content h2 {
+            font-size: 3em;
+        }
+
+        .card:hover .content {
+            opacity: 100%;
+        }
+
+        @media (max-width: 681px) {
+            .card {
+                position: relative;
+                max-width: 600px;
+                display: block;
+            }
+
+            .card:hover {
+                height: 620px;
+            }
+
+            .card:hover #img1 {
+                opacity: 0;
+                height: 400px;
+                left: 50%;
+                transition: 1s;
+            }
+
+            .card:hover #img2 {
+                opacity: 100%;
+                height: 400px;
+                left: 50%;
+                transition: 1s;
+            }
+
+            .card:hover .content {
+                top: 10px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 431px) {
+            .card:hover {
+                height: 660px;
+            }
+        }
+
+        @media (max-width: 352px) {
+            .card:hover {
+                height: 800px;
+            }
+        }
+
+        .footer {
+            width: 100%;
+            height: 10%;
+            background-color: #5c1c40;
+            color: #000000;
+            text-align: center;
+            padding: 3px 10px;
+            position: relative;
+            margin-top: 100px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+            font-size: 1rem;
+        }
+        /* Menu Container */
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Hamburger Button */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: black;
+            cursor: pointer;
+            z-index: 1001;
+            position: absolute;
+            left: 20px; /* Align hamburger button on the left */
+        }
+
+        /* Menu Styles for Small Screens */
+        .menu.open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #5c1c40;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .menu.open a {
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+<header class="fixed-header">
+    <div class="menu-container">
+        <button class="hamburger" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="menu">
+            <a href="index1.html"><i class="fa fa-home"></i>&nbsp;Home</a>
+            <a href="history.html"><i class="fa fa-hourglass-half"></i>&nbsp;History</a>
+            <a href="discover.html"><i class="fa fa-map"></i>&nbsp;Discover Brașov</a>
+            <a href="sightseeing.html"><i class="fa fa-camera"></i>&nbsp;Sightseeing</a>
+            <a href="services.html"><i class="fa fa-concierge-bell"></i>&nbsp;Services</a>
+            <a href="contact.html"><i class="fa fa-envelope"></i>&nbsp;Contact</a>
+            <a href="Dracula.html"><i class="fas fa-tint"></i>&nbsp;Dracula</a>
+        </div>
+    </div>
+</header>
+
+
+<div class="card-body">
+        <div class="card">
+            <img id="img1" src="images/dracula1.jpg" alt="Dracula">
+            <img id="img2" src="images/dracula2.jpg" alt="Dracula Hover">
+            <div class="content">
+            </div>
+        </div>
+    </div>
+
+    <div class="extra-info">
+        <h3>Did You Know?</h3>
+        <p>Dracula's name comes from the Romanian word "Dracul," meaning "dragon" or "devil." It was derived from his father, Vlad Dracul.</p>
+        <p>Vlad the Impaler, the historical inspiration for Dracula, was notorious for impaling his enemies and using fear as a weapon during battles.</p>
+        <p>Bram Stoker never visited Romania, yet he depicted Transylvania vividly in his 1897 novel, creating a lasting association with vampires.</p>
+        <p>Dracula's Castle, often identified as Bran Castle, was never actually home to Vlad the Impaler, though it remains a popular tourist destination.</p>
+        <p>Garlic, mirrors, and holy symbols are common vampire repellents popularized by Stoker's book and folklore traditions.</p>
+        <button onclick="window.location.href='https://en.wikipedia.org/wiki/Count_Dracula'" target="_blank">Learn more</button>
+    </div>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('open');
+    });
+</script>
+
+<footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 All Rights Reserved.</p>
+            <p>Designed by Olariu Lenuta and Voican Delia</p>
+        </div>
+    </footer>
+</body>
+
+</html>

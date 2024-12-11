@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sightseeing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #F4E8D6;
+            margin: 0;
+        }
+
+        /* Navbar Styles */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #beae97;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #473f3f;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .menu a:hover {
+            color: #736a37;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            left: 20px;
+        }
+
+        /* Responsive Menu */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background: #beae97;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 200px;
+                height: 100vh;
+                padding: 10px;
+                box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .menu.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* Carousel Styles */
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh; 
+            overflow: hidden;
+        }
+
+        .slide {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .item {
+            min-width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .button {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .button button {
+            background-color: #beae97;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .button button:hover {
+            background-color: #736a37;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<header class="fixed-header">
+    <span class="hamburger"><i class="fas fa-bars"></i></span>
+    <nav class="menu">
+        <a href="index1.html"><i class="fa fa-home"></i> Home</a>
+        <a href="history.html"><i class="fa fa-hourglass-half"></i> History</a>
+        <a href="discover.html"><i class="fa fa-map"></i> Discover Brașov</a>
+        <a href="sightseeing.html"><i class="fa fa-camera"></i> Sightseeing</a>
+        <a href="services.html"><i class="fa fa-concierge-bell"></i> Services</a>
+        <a href="contact.html"><i class="fa fa-envelope"></i> Contact</a>
+        <a href="Dracula.html"><i class="fas fa-tint"></i> Dracula</a>
+    </nav>
+</header>
+
+<!-- Carousel -->
+<div class="container">
+    <div class="slide">
+        <div class="item" style="background-image: url(images/gg.avif);"></div>
+        <div class="item" style="background-image: url(images/Castelul_Bran2.jpg);"></div>
+        <div class="item" style="background-image: url(images/camp.jpg);"></div>
+        <div class="item" style="background-image: url(images/transfagarasan.jpg);"></div>
+        <div class="item" style="background-image: url(images/poianabrasov.avif);"></div>
+        <div class="item" style="background-image: url(images/brasoviarna.jpg);"></div>
+        <div class="item" style="background-image: url(images/b5.jpg);"></div>
+        <div class="item" style="background-image: url(images/piata.jpg);"></div>
+        <div class="item" style="background-image: url(images/biserica-neagra-iarna.jpg);"></div>
+
+    </div>
+    <div class="button">
+        <button class="prev"><i class="fas fa-arrow-left"></i></button>
+        <button class="next"><i class="fas fa-arrow-right"></i></button>
+    </div>
+</div>
+
+<script>
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+
+    // Carousel Controls
+    const slide = document.querySelector('.slide');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let index = 0;
+
+    function showSlide(direction) {
+        const items = document.querySelectorAll('.item');
+        const totalItems = items.length;
+
+        if (direction === 'next') {
+            index = (index + 1) % totalItems;
+        } else if (direction === 'prev') {
+            index = (index - 1 + totalItems) % totalItems;
+        }
+
+        slide.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    next.addEventListener('click', () => showSlide('next'));
+    prev.addEventListener('click', () => showSlide('prev'));
+</script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #d6cdc4;
+        display: flex;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        justify-content: center;
+        z-index: 1000; /* Ensure it stays above all other elements */
+        display: flex;
+            gap: 20px; 
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .menu {
+      display: flex;
+      gap: 20px; /* Spațiu între elemente */
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: rgb(71, 63, 63); /* Text alb */
+      font-size: 16px;
+      font-weight: 600; /* Bold */
+      transition: color 0.3s;
+    }
+
+    .menu a i {
+      font-size: 20px; /* Dimensiune inițială iconiță */
+      transition: transform 0.3s ease; /* Animație pentru mărire */
+    }
+
+    .menu a:hover i {
+      transform: scale(1.2); /* Mărire cu 20% */
+    }
+
+    .menu a:hover {
+      color: #736a37; /* Schimbare culoare la hover */
+    }
+
+    /* Spațiu pentru conținut */
+    main {
+      margin-top: 80px; /* Pentru a evita suprapunerea cu navbar-ul */
+      flex: 1; /* Make it take available space */
+    }
+    body {
+        display: flex;
+        flex-direction: column; /* Stack header, content, and footer */
+        justify-content: space-between; /* Spread elements evenly */
+        min-height: 100vh; /* Full viewport height */
+        
+    }
+
+    .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .item-container {
+        position: relative;
+        margin: 24px;
+        width: 320px;
+        height: 570px;
+        overflow: hidden;
+        background-color: #fff;
+        box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+    }
+
+    .img-container,
+    .body-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .img-container img {
+        width: 100%;
+    }
+
+    .body-container {
+        position: relative;
+    }
+
+    .overlay {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        background-color: rgba(24, 83, 122, 0.6);
+        opacity: 0;
+        transition: height linear 0.4s, opacity linear 0.2s;
+    }
+
+    .item-container:hover .overlay {
+        opacity: 1;
+        height: 150px;
+    }
+
+    .event-info {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 8px;
+    }
+
+    .title,
+    .price {
+        color: #18537a;
+        font-size: 1.5em;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 12px;
+    }
+
+    .info {
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+    }
+
+    .separator {
+        width: 20%;
+        height: 6px;
+        background-color: #17537a;
+        margin-bottom: 16px;
+    }
+
+    .additional-info {
+        border-top: 1px solid #bbb;
+        margin-top: 12px;
+        padding: 28px;
+        padding-bottom: 0;
+    }
+
+    .additional-info .info {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .info i {
+        color: #18537a;
+        font-size: 1.1em;
+        margin-right: 4px;
+    }
+
+    .info span {
+        color: #18537a;
+        font-weight: bolder;
+    }
+
+    .action {
+        color: #fff;
+        border: 3px solid #fff;
+        background-color: transparent;
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        outline: none;
+        cursor: pointer;
+        padding: 12px;
+        text-transform: uppercase;
+        font-size: 1.3em;
+        font-weight: bold;
+        letter-spacing: 2px;
+        transition: background-color 0.4s, top 0.4s;
+    }
+
+    .item-container:hover .action {
+        top: 50px;
+    }
+
+    .action:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer {
+        background: #18537a;
+        color: white;
+        text-align: center;
+        padding: 10px 20px;
+        margin-top: auto;
+    }
+
+    .footer p {
+        margin: 5px 0;
+    }
+    /* Menu Container */
+    .menu-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 100%;
+    }
+
+    /* Hamburger Button */
+    .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: rgb(71, 63, 63);
+        cursor: pointer;
+        z-index: 1001;
+        position: absolute;
+        left: 20px; /* Align hamburger button on the left */
+    }
+
+    /* Menu Styles for Small Screens */
+    .menu.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #d6cdc4;
+        z-index: 1000;
+        padding: 10px 0;
+    }
+
+    .menu.open a {
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .menu {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .hamburger {
+            display: block;
+        }
+    }
+
+    </style>
+    <title>Events Ticket Card</title>
+</head>
+<body>
+<header class="fixed-header">
+    <div class="menu-container">
+        <button class="hamburger" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="menu">
+            <a href="index1.html"><i class="fa fa-home"></i>&nbsp;Home</a>
+            <a href="history.html"><i class="fa fa-hourglass-half"></i>&nbsp;History</a>
+            <a href="discover.html"><i class="fa fa-map"></i>&nbsp;Discover Brașov</a>
+            <a href="sightseeing.html"><i class="fa fa-camera"></i>&nbsp;Sightseeing</a>
+            <a href="services.html"><i class="fa fa-concierge-bell"></i>&nbsp;Services</a>
+            <a href="contact.html"><i class="fa fa-envelope"></i>&nbsp;Contact</a>
+            <a href="Dracula.html"><i class="fas fa-tint"></i>&nbsp;Dracula</a>
+        </div>
+    </div>
+</header>
+
+
+<div class="container">
+        <div class="item-container">
+            <div class="img-container">
+                <img src="images/bran.jpg" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">Bran Castle</p>
+                    <div class="separator"></div>
+                    <p class="info"> Known as Dracula's Castle.</p>
+                    <p class="price">18$</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Strada General Traian Moșoiu 24, Bran 507025, România
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            Tuesday to Sunday: 09:00 - 18:00
+                        </p>
+
+                        <p class="info description">
+                            Bran Castle, a 14th-century fortress near Brașov, Romania, is famed for its medieval charm and ties to the Dracula legend.
+                            
+                    </div>
+                </div>
+                <button class="action" onclick="window.open('https://www.megapass.com/tours-tickets/brasov-bran-castle-skip-the-ticket-line-ticket-i2979', '_blank');">Book it</button>
+                
+               
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="images/bise.jpg" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">The Black Church</p>
+                    <div class="separator"></div>
+                    <p class="info">Hosts impressive classical concert</p>
+                    <p class="price">5$</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Curtea Johannes Honterus 2, Brașov 500025, România
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            Sunday to Monday: 12:00  – 19:00 <br>
+                            Tuesday to Saturday: 10:00 – 19:00
+                        </p>
+
+                        <p class="info description">
+                            The Black Church in Brașov is named for its walls, blackened by smoke after a devastating fire in 1689.
+                        </p>
+                    </div>
+                </div>
+                <button class="action" onclick="window.open('https://bisericaneagra.ro/', '_blank');">Book it</button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="images/draculas_place.jpg" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">Poienari Fortress</p>
+                    <div class="separator"></div>
+                    <p class="info"> Home of Vlad the Impaler</p>
+                    <p class="price">Free</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Transfăgărășan, Arefu 117040, România
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            Daily from 09:00-18:00
+                        </p>
+
+                        <p class="info description">
+                        
+                             Accessible via 1,480 steps, it offers stunning views of the Carpathians and a glimpse into medieval history.
+                        </p>
+                    </div>
+                </div>
+                <button class="action" onclick=  "window.open('https://www.viator.com/Romania-attractions/Poenari-Castle/overview/d64-a23718', '_blank');">Book it</button>
+            </div>
+        </div>
+
+        <div class="item-container">
+            <div class="img-container">
+                <img src="images/fermoar_cetatea_rasnov_brasov_rasnov-742x1024.jpg" alt="Event image">
+            </div>
+
+            <div class="body-container">
+                <div class="overlay"></div>
+
+                <div class="event-info">
+                    <p class="title">Fortified Church</p>
+                    <div class="separator"></div>
+                    <p class="info">Includes a sanctuary of 121 bears</p>
+                    <p class="price">62$</p>
+
+                    <div class="additional-info">
+                        <p class="info">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Râșnov, Brașov
+                        </p>
+                        <p class="info">
+                            <i class="far fa-calendar-alt"></i>
+                            Summer: 09:00 – 19:00 <br>
+
+                             Winter: 09:00 – 17:00
+                        </p>
+
+                        <p class="info description">
+                            Known for its well-preserved walls and panoramic views, it’s a fascinating glimpse into medieval defense strategies.
+                        </p>
+                    </div>
+                </div>
+                <button class="action" onclick=  "window.open('https://www.getyourguide.com/ro-ro/brasov-l2003/brasov-sanctuarul-ursilor-castelul-dracula-si-cetatea-rasnov-t534227/?ranking_uuid=fa3c14d9-13bf-4707-9be6-4dc40bf310ed', '_blank');">Book it</button>
+                
+            </div>
+        </div>
+    </div>
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('open');
+    });
+</script>
+
+<footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 All Rights Reserved.</p>
+            <p>Designed by Olariu Lenuta and Voican Delia</p>
+        </div>
+    </footer>
+    
+</body>
+</html>
+
+
+
+

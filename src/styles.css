@@ -1,0 +1,374 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #AF8F6F;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Fixed Header Styles */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #AF8F6F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: rgb(71, 63, 63);
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.menu a i {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.menu a:hover i {
+  transform: scale(1.2);
+}
+
+.menu a:hover {
+  color: #6F4E37;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #AF8F6F;
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Main Content */
+.content {
+  background-color: #AF8F6F;
+  height: 80vh;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+.text-content {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  max-width: 80%;
+  color: #533a21;
+}
+
+.text-content h1 {
+  font-size: 6vw;
+  margin: 0;
+}
+
+.image-content {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 60px; /* Adjust for fixed header */
+}
+
+.image-content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+.image-content p {
+  font-size: 1.2vw;
+  margin-top: 20px;
+}
+
+/* Introduction Section */
+.introduction-section {
+  background-color: #F4E8D6;
+  padding: 40px 30px;
+  margin-top: 80px;
+  width: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  color: #533a21;
+  text-align: left;
+}
+
+.introduction-section h2 {
+  font-size: 2.5vw;
+  margin-bottom: 20px;
+  color: #6F4E37;
+}
+
+.introduction-section p {
+  font-size: 1.2vw;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+/* Geography Section */
+.geography-section {
+  background-color: #EAD9C5;
+  padding: 40px 30px;
+  margin-top: 20px;
+  width: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.geo-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.geo-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.geo-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.geo-content {
+  flex: 2;
+  text-align: justify;
+  padding-left: 20px;
+  color: #533a21;
+}
+
+.geo-content h2 {
+  font-size: 2.5vw;
+  margin-bottom: 20px;
+  color: #6F4E37;
+  text-align: right;
+}
+
+.geo-content p {
+  font-size: 1.2vw;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* Did You Know Section */
+.did-you-know-section {
+  background-color: #F4E8D6;
+  padding: 40px 30px;
+  margin-top: 20px;
+  width: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.dyk-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dyk-text {
+  flex: 1;
+  padding-right: 20px;
+  text-align: justify;
+  color: #533a21;
+}
+
+.dyk-text h2 {
+  font-size: 2.5vw;
+  margin-bottom: 20px;
+  color: #6F4E37;
+}
+
+.dyk-text ul {
+  font-size: 1.2vw;
+  line-height: 1.8;
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.dyk-text li {
+  margin-bottom: 10px;
+}
+
+.dyk-image {
+  flex: 1;
+}
+
+.dyk-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* CSS for Gradual Reveal */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer Styles */
+.footer {
+  width: 100%;
+  background-color: #533a21;
+  color: #f9f9f9;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.footer-content p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .geo-container,
+  .dyk-container {
+    flex-direction: column;
+  }
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: rgb(71, 63, 63);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: center; /* Centers the menu horizontally */
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.hamburger {
+  position: absolute;
+  left: 20px; /* Keeps the hamburger on the left side */
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: rgb(71, 63, 63);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #AF8F6F;
+  z-index: 1000;
+}
+
+.menu.open a {
+  padding: 10px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+

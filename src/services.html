@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services of Brasov</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Imperial+Script&family=Maven+Pro:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pontano+Sans:wght@300..700&family=Quicksand:wght@300..700&family=Share+Tech&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Maven+Pro:wght@400..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Pontano+Sans:wght@300..700&family=Quicksand:wght@300..700&family=Share+Tech&display=swap" rel="stylesheet">
+
+    <style>
+        /* General Styles */
+       
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Montserrat;
+        line-height: 1.6;
+        color: #333; /* Dark text for readability */
+        background-color: #fefae0; /* Light off-white background */
+        margin-top: 60px; /* Match the header's height */
+    }
+
+    /* Fixed Header */
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #AF8F6F; /* Subtle dark green */
+        display: flex;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        justify-content: center;
+        z-index: 1000;
+        gap: 20px;
+        padding: 0 20px; /* Add padding for spacing */
+    }
+
+    .menu {
+        display: flex;
+        gap: 20px;
+    
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: #F2EED7; /* Muted light green for links */
+        font-size: 16px;
+        font-weight: 600;
+        transition: color 0.3s;
+        gap: 5px; /* Spacing between icon and text */
+    }
+
+    .menu a i {
+        font-size: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .menu a:hover i {
+        transform: scale(1.2);
+    }
+
+    .menu a:hover {
+        color: #6F4E37; /* Soft grayish green on hover */
+    }
+
+    /* Main Content */
+    .services {
+        padding-top: 80px; /* Prevent overlap with the header */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .intro {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .intro h1 {
+        font-size: 2.5rem;
+        color: #3b4d3b; /* Darker green for heading */
+        font-family: 'Merriweather', serif;
+    }
+
+    .intro p {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #666; /* Neutral gray for description */
+    }
+
+    h2 {
+        font-size: 2rem;
+        color: #3b4d3b; /* Darker green for subheadings */
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: 'Merriweather', serif;
+    }
+
+    /* Service Grid */
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .service-card {
+        background: #fefae0; /* White background for cards */
+        border: 2px solid #283618; /* Light gray border */
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        padding: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+    .service-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-card img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        object-fit: cover;
+        height: 180px;
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem;
+        color: #3b4d3b; /* Dark green for titles */
+        margin: 10px 0;
+    }
+
+    .service-card p {
+        font-size: 1rem;
+        color: #555; /* Dark gray text for description */
+        line-height: 1.4;
+    }
+
+    .service-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        font-size: 1rem;
+        color: #F2EED7; /* White text */
+        background-color: #dda15e; /* Muted dark green */
+        text-decoration: none;
+        border-radius: 5px;
+        border: 2px ; /* Soft green border */
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .service-button:hover {
+        background-color: #bc6c25; /* Softer green on hover */
+        color: #F2EED7;
+        transform: scale(1.05);
+    }
+
+    /* Footer */
+    .footer {
+        background: #AF8F6F; 
+        color: #F2EED7; 
+        text-align: center;
+        padding: 10px 20px;
+        margin-top: 40px;
+    }
+
+    .footer p {
+        margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+        .menu {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .intro h1 {
+            font-size: 2rem;
+        }
+
+        .intro p {
+            font-size: 1rem;
+        }
+
+        .service-card img {
+            height: 150px;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+        }
+
+        .service-button {
+            padding: 8px 12px;
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .intro h1 {
+            font-size: 1.8rem;
+        }
+
+        .service-card img {
+            height: 120px;
+        }
+
+        .service-card h3 {
+            font-size: 1rem;
+        }
+
+        .service-button {
+            padding: 6px 10px;
+            font-size: 0.7rem;
+        }
+    }
+
+    /* Responsive Settings for Header */
+    @media (max-width: 768px) {
+        .fixed-header {
+            padding: 10px 5px; /* Reduce padding for smaller screens */
+        }
+
+        .menu {
+            flex-direction: row; /* Keep horizontal alignment */
+            justify-content: space-around; /* Adjust spacing between items */
+        }
+
+        .menu a {
+            font-size: 14px; /* Slightly smaller font size */
+        }
+
+        .menu a i {
+            font-size: 16px; /* Adjust icon size */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .menu {
+            flex-direction: row; /* Ensure horizontal alignment */
+            justify-content: center; /* Center the menu items */
+            flex-wrap: wrap; /* Allow items to wrap if needed */
+        }
+
+        .menu a {
+            font-size: 12px; /* Smaller font size for very small screens */
+            margin: 0 5px; /* Add minimal spacing between links */
+        }
+
+        .menu a i {
+            font-size: 14px; /* Scale down icons further */
+        }
+    }
+        /* Menu Container */
+        .menu-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Hamburger Button */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: rgb(71, 63, 63);
+            cursor: pointer;
+            z-index: 1001;
+            position: absolute;
+            left: 20px; /* Align hamburger button on the left */
+        }
+
+        /* Menu Styles for Small Screens */
+        .menu.open {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #606c38;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .menu.open a {
+            padding: 10px;
+            text-align: left;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+<header class="fixed-header">
+    <div class="menu-container">
+        <button class="hamburger" aria-label="Toggle menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="menu">
+            <a href="index1.html"><i class="fa fa-home"></i>&nbsp;Home</a>
+            <a href="history.html"><i class="fa fa-hourglass-half"></i>&nbsp;History</a>
+            <a href="discover.html"><i class="fa fa-map"></i>&nbsp;Discover Brașov</a>
+            <a href="sightseeing.html"><i class="fa fa-camera"></i>&nbsp;Sightseeing</a>
+            <a href="services.html"><i class="fa fa-concierge-bell"></i>&nbsp;Services</a>
+            <a href="contact.html"><i class="fa fa-envelope"></i>&nbsp;Contact</a>
+            <a href="Dracula.html"><i class="fas fa-tint"></i>&nbsp;Dracula</a>
+        </div>
+    </div>
+</header>
+
+
+<main class="services">
+        <section class="intro">
+            <h1>Explore the Best Services in Brașov</h1>
+            <p>Whether you're looking for fine dining, a cozy place to stay or a place to drink, Brașov has it all. Discover some of the best restaurants, hotels and bars the city has to offer.</p>
+        </section>
+
+        <section class="restaurants">
+            <h2>Top Restaurants</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="images/la-ceaun.jpg" alt="Restaurant">
+                    <h3>La Ceaun</h3>
+                    <p>Traditional Romanian dishes made from local ingredients in a rustic atmosphere.</p>
+                    <a href="https://piata.laceaun.com/en" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/epCFFMVxrUjrDCzh9" target="_blank" class="service-button">View on Map</a>
+                </div>
+                <div class="service-card">
+                    <img src="images/bistro.jpg" alt="Restaurant">
+                    <h3>Bistro de l'Arte</h3>
+                    <p>A cozy bistro offering European fusion cuisine and a wide selection of wines.</p>
+                    <a href="https://bistrodelarte.ro/" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/DZCEkuU4wyXj3fNRA" target="_blank" class="service-button">View on Map</a>
+                </div>
+                <div class="service-card">
+                    <img src="images/ograda.jpg" alt="Restaurant">
+                    <h3>Ograda</h3>
+                    <p>Local food and stories to share. A complete experience in the city center with all the local goodies in the area.</p>
+                    <a href="https://ograda.com/" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/K3EK7YHksoowXs8y6" target="_blank" class="service-button">View on Map</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="hotels">
+            <h2>Recommended Hotels</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="images/aro.jpg" alt="Hotel">
+                    <h3>Aro Palace</h3>
+                    <p>Luxury accommodations in the heart of the city, with a spa and panoramic views.</p>
+                    <a href="https://aro-palace.ro/" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/DN6pXvMpVuaCidrb7" target="_blank" class="service-button">View on Map</a>
+                </div>
+                <div class="service-card">
+                    <img src="images/casa_chitic.jpg" alt="Hotel">
+                    <h3>Casa Chitic</h3>
+                    <p>A charming boutique hotel with modern amenities, located near the old town square.</p>
+                    <a href="https://www.casachitic.ro/" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/MwnZKczji47HiTHx5" target="_blank" class="service-button">View on Map</a>
+                </div>
+                <div class="service-card">
+                    <img src="images/prinz.jpg" alt="Hotel">
+                    <h3>Prinz Gregor</h3>
+                    <p>A modern and elegant hotel offering comfort and unique experiences in Brașov.</p>
+                    <a href="https://prinzgregor.ro/" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/8Wpe1RFy7d2sMq8C9" target="_blank" class="service-button">View on Map</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="bars">
+            <h2>Popular Bars</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="images/tipografia.jpg" alt="Bar">
+                    <h3>Tipografia</h3>
+                    <p>An artsy spot for craft cocktails, local beers, and cultural events.</p>
+                    <a href="http://tipo-grafia.ro/bar_gourmet/" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/2DNhT6sv9oN8me927" target="_blank" class="service-button location-button">View Location</a>
+                </div>
+                <div class="service-card">
+                    <img src="images/propaganda.jpg" alt="Bar">
+                    <h3>Propaganda Bar</h3>
+                    <p>A lively bar with an eclectic vibe, creative cocktails, and a fun crowd.</p>
+                    <a href="https://www.tripadvisor.com/Restaurant_Review-g295394-d26268104-Reviews-Propaganda_Bar-Brasov_Brasov_County_Central_Romania_Transylvania.html" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/3MKpPpifULzdwcy36" target="_blank" class="service-button location-button">View Location</a>
+                </div>
+                <div class="service-card">
+                    <img src="images/music-cafe.jpg" alt="Bar">
+                    <h3>Musik Cafe</h3>
+                    <p>A cozy spot for live music, great drinks, and an inviting atmosphere in Brașov.</p>
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g295394-d17451686-Reviews-Musik_Cafe-Brasov_Brasov_County_Central_Romania_Transylvania.html" target="_blank" class="service-button">Visit Website</a>
+                    <a href="https://maps.app.goo.gl/wiNhSSD59s7ofevT9" target="_blank" class="service-button location-button">View Location</a>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        
+
+    </main>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+        menu.classList.toggle('open');
+    });
+</script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 All Rights Reserved.</p>
+            <p>Designed by Olariu Lenuta and Voican Delia</p>
+        </div>
+    </footer>
+</body>
+</html>
